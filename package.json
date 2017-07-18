@@ -1,0 +1,14 @@
+{
+  "name": "w4d2_querydatabase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lookup_people.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^7.0.0"
+  }
+}
