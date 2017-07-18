@@ -18,9 +18,10 @@ client.connect((err) => {
     if (err) {
       return console.error("error running query", err);
     }
+    const obj = result.rows;
     console.log("Searching ...");
     console.log (`Found ${result.rowCount} person(s) by the name '${input}':`);
-    console.log(`- ${result.rows[0].id}: ${result.rows[0].first_name} ${result.rows[0].last_name}, born ${result.rows[0].birthdate.toLocaleDateString()}`);
+    console.log(`- ${obj[0].id}: ${obj[0].first_name} ${obj[0].last_name}, born ${obj[0].birthdate.toLocaleDateString()}`);
     client.end();
   });
 });
