@@ -15,7 +15,7 @@ function logResult(result) {
   console.log("Searching ...");
     console.log (`Found ${result.rowCount} person(s) by the name '${input}':`);
     const obj = result.rows;
-    obj.forEach( (row) => {
+    obj.forEach( (row) => { // Loops through all results and logs it to terminal
       console.log(`- ${row.id}: ${row.first_name} ${row.last_name}, born ${row.birthdate.toLocaleDateString()}`);
     });
 }
