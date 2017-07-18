@@ -10,6 +10,16 @@ const client = new pg.Client({
   ssl      : settings.ssl
 });
 
+// Logs results of query to terminal
+function logResult(result) {
+  console.log("Searching ...");
+    console.log (`Found ${result.rowCount} person(s) by the name '${input}':`);
+    const obj = result.rows;
+    console.log(`- ${result.rows[0].id}: ${result.rows[0].first_name} ${result.rows[0].last_name}, born ${result.rows[0].birthdate.toLocaleDateString()}`);
+    client.end();
+}
+
+
 client.connect((err) => {
   if (err) {
     return console.error("Connection Error", err);
@@ -18,11 +28,7 @@ client.connect((err) => {
     if (err) {
       return console.error("error running query", err);
     }
-    console.log("Searching ...");
-    console.log (`Found ${result.rowCount} person(s) by the name '${input}':`);
-    const obj = result.rows;
-    console.log(`- ${obj[0].id}: ${obj[0].first_name} ${obj[0].last_name}, born ${obj[0].birthdate.toLocaleDateString()}`);
-    client.end();
+    logResult(result); // Calls function to log results
   });
 });
 
